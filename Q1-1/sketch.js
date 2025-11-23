@@ -1,11 +1,23 @@
-// 神戸市のマーク
+
+
 function setup(){
   createCanvas(200, 200);
-  background(255);
+  background(192);
+  noStroke();
+   
 
-  noFill();
-  strokeWeight(25);
-  strokeCap(SQUARE);
-  arc(100 + 25, 100, 100, 100, QUARTER_PI * 3, QUARTER_PI * 3 + PI);
-  // BLANK[1] 空欄を埋めて神戸市のロゴマークを完成させよう
+  flower(random(10, 50), random(10, 50), random(10, 50)); 
+   flower(random(10, 50), random(10, 50), random(10, 50)); 
+    flower(random(10, 50), random(10, 50), random(10, 50)); 
+     flower(random(10, 50), random(10, 50), random(10, 50)); 
+}
+
+function flower(cx, cy, r){
+  // ---- 花びら4つ ----
+  ellipse(cx + r, cy, r * 2); // 右
+  ellipse(cx - r, cy, r * 2); // 左
+  ellipse(cx, cy - r, r * 2); // 上
+  ellipse(cx, cy + r, r * 2); // 下
+
+  
 }
