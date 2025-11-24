@@ -1,23 +1,18 @@
-
-
 function setup(){
   createCanvas(200, 200);
   background(192);
-  noStroke();
-   
 
-  flower(random(10, 50), random(10, 50), random(10, 50)); 
-   flower(random(10, 50), random(10, 50), random(10, 50)); 
-    flower(random(10, 50), random(10, 50), random(10, 50)); 
-     flower(random(10, 50), random(10, 50), random(10, 50)); 
+  noStroke();
+  flower(100, 100, 50,); // 点つなぎだけど線なしもOK
 }
 
-function flower(cx, cy, r){
-  // ---- 花びら4つ ----
-  ellipse(cx + r, cy, r * 2); // 右
-  ellipse(cx - r, cy, r * 2); // 左
-  ellipse(cx, cy - r, r * 2); // 上
-  ellipse(cx, cy + r, r * 2); // 下
-
-  
+function flower(cx, cy, r,){
+  beginShape();    // 点つなぎを始める
+  for(let i = 0; i < 8; i++){
+    const theta = TWO_PI * i / 8 - HALF_PI;
+    const x = cx + cos(theta) * r;
+    const y = cy + sin(theta) * r;
+    vertex(x, y);  // 次につなぐ点を１つ増やす
+  }
+  endShape(CLOSE); // 点つなぎを終わる
 }
