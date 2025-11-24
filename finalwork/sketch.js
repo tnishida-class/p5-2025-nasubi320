@@ -55,13 +55,13 @@ function setup() {
     }; letters2.push(c2);　//　文字に情報を追加、その文字を配列に追加
 
   }
- 
+
   for (let a = 0; a < flowerCount; a++) {
     let f = {
       x: random(50, windowWidth - 50),
       y: random(50, windowHeight - 50),
       r: random(10, 30),
-      angle:0
+      angle: 0
 
     }; flowers.push(f);
 
@@ -73,16 +73,10 @@ function setup() {
 
 function ajisai(cx, cy, r) {
 
-  
-
   ellipse(cx + r, cy, r * 2);
   ellipse(cx, cy - r, r * 2);
   ellipse(cx - r, cy, r * 2);
   ellipse(cx, cy + r, r * 2);
-
-  
-
-
 
 }
 
@@ -91,27 +85,39 @@ function ajisai(cx, cy, r) {
 //描画
 
 function draw() {
-  background(255);
+  if (Rwidth >= windowWidth) {
+    background(64, 224, 208);
+  }
+  else {
+    background(255);
+
+  }
+
 
   for (let i = 0; i < flowers.length; i++) {
-  let f = flowers[i];
-  fill(150,50,200,200); 
-  noStroke();
-  ajisai(f.x,f.y,f.r);
-}
+    let f = flowers[i];
+    fill(150, 50, 200, 200);
+    noStroke();
+    ajisai(f.x, f.y, f.r);
+  }
 
 
   noStroke();
   fill(220, 230, 255);
   rect(0, windowHeight / 2 - fontSize * 2, Rwidth, fontSize * 4)
-  Rwidth += 5;
+  Rwidth += 3;
+
+  
+
+
+
 
   // 日本語
   for (let i = 0; i < letters.length; i++) {
 
     let l = letters[i];
 
-    if (frameCount > l.delay) {　//ある時間(フレーム、delay)を過ぎたら
+    if (frameCount > l.delay) {//ある時間(フレーム、delay)を過ぎたら
       if (!l.arrived) {
         l.y += l.speed;
         if (l.y >= l.targetY) {
@@ -139,7 +145,7 @@ function draw() {
     if (frameCount > l2.delay) {　//ある時間(フレーム、delay)を過ぎたら
       fill(0);
     }
-    else { fill(0,0,0,0); }
+    else { fill(0, 0, 0, 0); }
     textSize(fontSize2);
     textAlign(CENTER, CENTER);
     textStyle(NORMAL);
