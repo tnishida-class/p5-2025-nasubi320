@@ -1,11 +1,18 @@
-// 神戸市のマーク
 function setup(){
   createCanvas(200, 200);
-  background(255);
+  background(192);
 
-  noFill();
-  strokeWeight(25);
-  strokeCap(SQUARE);
-  arc(100 + 25, 100, 100, 100, QUARTER_PI * 3, QUARTER_PI * 3 + PI);
-  // BLANK[1] 空欄を埋めて神戸市のロゴマークを完成させよう
+  noStroke();
+  flower(100, 100, 50,); // 点つなぎだけど線なしもOK
+}
+
+function flower(cx, cy, r,){
+  beginShape();    // 点つなぎを始める
+  for(let i = 0; i < 8; i++){
+    const theta = TWO_PI * i / 8 - HALF_PI;
+    const x = cx + cos(theta) * r;
+    const y = cy + sin(theta) * r;
+    vertex(x, y);  // 次につなぐ点を１つ増やす
+  }
+  endShape(CLOSE); // 点つなぎを終わる
 }
