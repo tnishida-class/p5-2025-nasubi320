@@ -1,4 +1,4 @@
-let text1 = "神戸大学大学院国際文化学研究科";
+let text1 = ["神戸大学", "大学院", "国際文化学", "研究科"];
 let letters = [];
 let fontSize = 30;
 
@@ -26,8 +26,8 @@ function setup() {
 
   // 各文字の初期位置と落下開始時間
   for (let i = 0; i < text1.length; i++) {
-    let start = width / 16;
-    let plus = i * fontSize
+    let start = width / 10;
+    let plus = i * fontSize * 4
     const c = {
       cha: text1[i], //文字そのもの
       x: start + plus,
@@ -107,7 +107,7 @@ function draw() {
   rect(0, windowHeight / 2 - fontSize * 2, Rwidth, fontSize * 4)
   Rwidth += 3;
 
-  
+
 
 
 
