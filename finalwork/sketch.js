@@ -33,7 +33,7 @@ function setup() {
       x: start + plus,
       y: -40, // 画面外の上からスタート
       targetY: height / 2,   //落ちてくる位置
-      delay: i * 10, // 何フレーム後に動き出すか
+      delay: i * 30, // 何フレーム後に動き出すか
       speed: 3,
       arrived: false
     }; letters.push(c);//　文字に情報を追加、その文字を配列に追加
